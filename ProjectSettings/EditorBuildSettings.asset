@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Unity Technologies/Adventure - Sample Game/Scenes/Persistent.unity
     guid: ef18a6fcc8276e541a14d91f5fb2d496
-  - enabled: 1
+  - enabled: 0
     path: Assets/Unity Technologies/Adventure - Sample Game/Scenes/SecurityRoom.unity
     guid: fa8464330437a6c439e767c377bbee1d
   - enabled: 1
