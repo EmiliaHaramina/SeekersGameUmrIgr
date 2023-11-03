@@ -899,7 +899,7 @@ PlayerSettings:
     tvOS: 1
   scriptingBackend:
     Android: 0
-    Standalone: 0
+    Standalone: 1
     WebGL: 1
     WebPlayer: 0
     Windows Store Apps: 2
