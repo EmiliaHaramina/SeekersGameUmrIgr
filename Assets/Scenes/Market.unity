@@ -625,7 +625,7 @@ PrefabInstance:
     - target: {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2749232806715078536, guid: 60770bdb4dc667c45bea53db0339dc05,
         type: 3}
@@ -11259,17 +11259,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head:
-    VRTarget: {fileID: 0}
+    VRTarget: {fileID: 1905703369}
     rigTarget: {fileID: 1723223676}
     positionOffset: {x: 0, y: 0, z: -0.35}
     rotationOffset: {x: 0, y: -90, z: -90}
   rightHand:
-    VRTarget: {fileID: 0}
+    VRTarget: {fileID: 1905703371}
     rigTarget: {fileID: 1877906036}
     positionOffset: {x: 0, y: 0, z: 0}
     rotationOffset: {x: 0, y: 90, z: 0}
   leftHand:
-    VRTarget: {fileID: 0}
+    VRTarget: {fileID: 1905703370}
     rigTarget: {fileID: 1780259431}
     positionOffset: {x: 0, y: 0, z: 0}
     rotationOffset: {x: 180, y: -90, z: 0}
@@ -15528,6 +15528,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+--- !u!4 &1905703369 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9014170783809206335, guid: 895f6f3c2d334633b5800312285058d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1905703368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1905703370 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9014170785475729501, guid: 895f6f3c2d334633b5800312285058d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1905703368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1905703371 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9014170783705847996, guid: 895f6f3c2d334633b5800312285058d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1905703368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1914633975
 PrefabInstance:
   m_ObjectHideFlags: 0
