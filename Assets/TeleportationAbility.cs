@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class TeleportationAbility : Ability
 {
-    [SerializeField] private TeleportationProvider _teleportationProvider;
+    [SerializeField] private List<XRRayInteractor> _teleportInteractors;
 
     private float _teleportationDuration = 4f;
 
@@ -22,13 +22,19 @@ public class TeleportationAbility : Ability
 
     public override void Use(GameObject caller)
     {
-        _teleportationProvider.enabled = true;
+        foreach (XRRayInteractor interactor in _teleportInteractors)
+        {
+            interactor.enabled = true;
+        }
 
         Invoke("DisableTeleportation", _teleportationDuration);
     }
 
     private void DisableTeleportation()
     {
-        _teleportationProvider.enabled = false;
+        foreach (XRRayInteractor interactor in _teleportInteractors)
+        {
+            interactor.enabled = false;
+        }
     }
 }
