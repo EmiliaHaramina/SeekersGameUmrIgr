@@ -6,33 +6,33 @@ using UnityEngine;
 
 public class InvisibilityAbility : Ability
 {
+    private GameObject _caller;
+    private float _invisibilityDuration = 4f;
+
     public override string Name
     {
         get { return "Invisibility"; }
     }
+
     public override float Cooldown
     {
-        get { return 20f; }
+        get { return 30f; }
         set { }
     }
 
-    float invisibilityDuration = 4f;
-
-    public GameObject Caller;
-
     public override void Use(GameObject caller)
     {
-        Caller = caller;
+        _caller = caller;
         caller.transform.Find("Mesh").gameObject.SetActive(false);
         caller.transform.Find("Armors").gameObject.SetActive(false);
-        Invoke("TurnVisible", invisibilityDuration);
+        Invoke("TurnVisible", _invisibilityDuration);
     }
 
 
     public void TurnVisible()
     {
-        Caller.transform.Find("Mesh").gameObject.SetActive(true);
-        Caller.transform.Find("Armors").gameObject.SetActive(true);
+        _caller.transform.Find("Mesh").gameObject.SetActive(true);
+        _caller.transform.Find("Armors").gameObject.SetActive(true);
 
     }
 }

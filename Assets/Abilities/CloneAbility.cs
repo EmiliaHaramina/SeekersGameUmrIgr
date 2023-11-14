@@ -5,17 +5,18 @@ using UnityEngine;
 
 public class CloneAbility : Ability
 {
+    [SerializeField] private GameObject Clone;
+
     public override string Name
     {
         get { return "Clone"; }
     }
+
     public override float Cooldown
     {
-        get { return 5f; }
+        get { return 6f; }
         set { }
     }
-
-    public GameObject Clone;
 
     public CloneAbility(GameObject clone)
     {

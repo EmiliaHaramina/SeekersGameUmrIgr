@@ -1,45 +1,73 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerAbilityComponent : MonoBehaviour
 {
-    public Ability MyAbility;
-    public GameObject Clone;
-
-    public Button AbilityButton;
+    [SerializeField] private List<AbilityButton> _abilityButtons;
 
     bool onCooldown;
-    void Start()
+    AbilityButton lastUsedAbility;
+
+    private void OnEnable()
     {
-        MyAbility = this.AddComponent<CloneAbility>();
-        (MyAbility as CloneAbility).Clone = Clone;
-
-        //MyAbility = this.AddComponent<InvisibilityAbility>();
-
-        RefreshCooldown();
+        foreach (AbilityButton abilityButton in _abilityButtons)
+        {
+            abilityButton.Button.onClick.AddListener(() => UseAbility(abilityButton));
+        }
     }
 
+    private void OnDisable()
+    {
+        foreach (AbilityButton abilityButton in _abilityButtons)
+        {
+            abilityButton.Button.onClick.RemoveListener(() => UseAbility(abilityButton));
+        }
+    }
 
-    public void UseAbility()
+    void Start()
+    {
+        ToggleCooldown(false);
+
+        foreach (AbilityButton abilityButton in _abilityButtons)
+        {
+            SetButton(abilityButton);
+        }
+    }
+
+    public void UseAbility(AbilityButton abilityButton)
     {
         if (onCooldown) return;
 
-        onCooldown = true;
-        AbilityButton.enabled = false;
-        AbilityButton.image.color = Color.red;
+        ToggleCooldown(true);
+        SetButton(abilityButton);
+        lastUsedAbility = abilityButton;
 
-        MyAbility.Use(this.gameObject);
-        
-        Invoke("RefreshCooldown", MyAbility.Cooldown);
+        abilityButton.Ability.Use(this.gameObject);
+
+        Invoke("RefreshCooldown", abilityButton.Ability.Cooldown);
     }
 
-    void RefreshCooldown()
+    private void RefreshCooldown()
     {
-        onCooldown = false;
-        AbilityButton.enabled = true;
-        AbilityButton.image.color = Color.green;
+        ToggleCooldown(false);
+        SetButton(lastUsedAbility);
+    }
+
+    private void ToggleCooldown(bool value)
+    {
+        onCooldown = value;
+    }
+
+    private void SetButton(AbilityButton abilityButton)
+    {
+        if (onCooldown)
+        {
+            abilityButton.Button.image.color = Color.red;
+        } 
+        else
+        {
+            abilityButton.Button.image.color = Color.green;
+        }
+        abilityButton.Button.enabled = !onCooldown;
     }
 }
