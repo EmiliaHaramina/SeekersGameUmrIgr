@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LobbyNetworkManager : MonoBehaviourPunCallbacks
 {
@@ -17,6 +18,13 @@ public class LobbyNetworkManager : MonoBehaviourPunCallbacks
 
     [SerializeField] private TMP_Text _statusField;
     [SerializeField] private Button _leaveRoomButton;
+    [SerializeField] private Button _startGameButton;
+
+    [SerializeField] private TMP_Text _currentLocationText;
+
+    [SerializeField] private GameObject _roomListWindow;
+    [SerializeField] private GameObject _playerListWindow;
+    [SerializeField] private GameObject _createRoomWindow;
 
     private List<RoomItemUI> _roomList = new List<RoomItemUI>();
     private List<RoomItemUI> _playerList = new List<RoomItemUI>();
@@ -31,7 +39,7 @@ public class LobbyNetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log("Connected to master server.");
+        _statusField.text = "Connected to master server";
         PhotonNetwork.JoinLobby();
     }
 
@@ -42,36 +50,63 @@ public class LobbyNetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        Debug.Log("Disconnected.");
+        if (_statusField == null)
+        {
+            return;
+        }
+        _statusField.text = "Disconnected.";
     }
 
     public override void OnJoinedLobby()
     {
+        _currentLocationText.text = "Rooms";
         Debug.Log("Joined lobby.");
     }
 
     public override void OnJoinedRoom()
     {
         _statusField.text = "Joined " + PhotonNetwork.CurrentRoom.Name;
-        Debug.Log("Joined Room: " + PhotonNetwork.CurrentRoom.Name);
+        _currentLocationText.text = PhotonNetwork.CurrentRoom.Name;
+
         _leaveRoomButton.interactable = true;
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            _startGameButton.interactable = true;
+        }
+
+        ShowWindow(false);
+        UpdatePlayerList();
     }
 
     public override void OnLeftRoom()
     {
-        _statusField.text = "LOBBY";
-        Debug.Log("Left room");
+        // TODO: Destroy room? It stays for other players, but they cant start the game
+        if (_statusField != null)
+        {
+            _statusField.text = "LOBBY";
+        }
+
+        if (_currentLocationText != null)
+        {
+            _currentLocationText.text = "Rooms";
+        }
+
         _leaveRoomButton.interactable = false;
+        _startGameButton.interactable = false;
+
+        ShowWindow(true);
+        UpdatePlayerList();
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-
+        UpdatePlayerList();
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-
+        UpdatePlayerList();
     }
 
     #endregion
@@ -119,8 +154,35 @@ public class LobbyNetworkManager : MonoBehaviourPunCallbacks
     private void UpdatePlayerList()
     {
         // Clear the current player list
+        for (int i = 0; i < _playerList.Count; i++)
+        {
+            Destroy(_playerList[i].gameObject);
+        }
+
+        _playerList.Clear();
+
+        if (PhotonNetwork.CurrentRoom == null)
+        {
+            return;
+        }
 
         // Generate a new list of players
+        foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
+        {
+            RoomItemUI newPlayerItem = Instantiate(_playerItemUIPrefab);
+
+            newPlayerItem.transform.SetParent(_playerListParent);
+            newPlayerItem.SetName(player.Value.NickName);
+
+            _playerList.Add(newPlayerItem);
+        }
+    }
+
+    private void ShowWindow(bool isRoomList)
+    {
+        _roomListWindow.SetActive(isRoomList);
+        _playerListWindow.SetActive(!isRoomList);
+        _createRoomWindow.SetActive(isRoomList);
     }
 
     public void JoinRoom(string roomName)
@@ -139,5 +201,16 @@ public class LobbyNetworkManager : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
+    }
+
+    public void OnBackToMainMenuPressed()
+    {
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public void OnStartGamePressed()
+    {
+        PhotonNetwork.LoadLevel("Market");
     }
 }
