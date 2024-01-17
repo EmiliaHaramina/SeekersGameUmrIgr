@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour
 {
     public event EventHandler PlayerCaughtEvent;
+
     // Start is called before the first frame update
     private int _hidersNum;
     private int _hidersCaught;
@@ -13,7 +14,10 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         //Nekako dobit broj hidera u sobi
-        //_hidersNum = taj broj
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        _hidersNum = players.Length - 1;
+        //_playerGameLogic.SetHiderBool();
+
         _hidersCaught = 0;
         _hidersWon = false;
     }

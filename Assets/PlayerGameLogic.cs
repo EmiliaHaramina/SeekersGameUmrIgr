@@ -9,14 +9,7 @@ public class PlayerGameLogic : MonoBehaviour
     [SerializeField] GameLogic gameLogic;
     void Start()
     {
-        if (this.tag == "hider")
-        {
-            _isHider = true;
-        }
-        else
-        {
-            _isHider = false;
-        }
+        
     }
 
     // Update is called once per frame
@@ -27,6 +20,7 @@ public class PlayerGameLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        
         if (_isHider)
         {
             if (collision.gameObject.tag == "seeker")
@@ -40,5 +34,16 @@ public class PlayerGameLogic : MonoBehaviour
     private void GotCaught()
     {
         gameLogic.PlayerCaught();
+    }
+
+    public void SetHiderBool() {
+        if (this.tag == "hider" || this.tag == "Player")
+        {
+            _isHider = true;
+        }
+        else
+        {
+            _isHider = false;
+        }
     }
 }
