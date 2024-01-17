@@ -5,6 +5,8 @@ using Photon.Pun;
 
 public class Network : MonoBehaviour
 {
+    public MasterClient masterClient;
+
     private GameObject spawnedPlayerPrefab;
 
     [SerializeField] private GameObject seekerSpawnPoint;
@@ -13,6 +15,10 @@ public class Network : MonoBehaviour
     private void Start()
     {
         spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", seekerSpawnPoint.transform.position, seekerSpawnPoint.transform.rotation);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            masterClient.Initialize();
+        }
     }
 
     //public override void OnJoinedRoom()

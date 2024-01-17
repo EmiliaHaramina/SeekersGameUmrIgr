@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class LobbyNetworkManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private TMP_InputField _roomInput;
+    //[SerializeField] private TMP_InputField _roomInput;
     [SerializeField] private RoomItemUI _roomItemUIPrefab;
     [SerializeField] private Transform _roomListParent;
 
@@ -28,6 +28,11 @@ public class LobbyNetworkManager : MonoBehaviourPunCallbacks
 
     private List<RoomItemUI> _roomList = new List<RoomItemUI>();
     private List<RoomItemUI> _playerList = new List<RoomItemUI>();
+
+    // Player Name Functionality
+    //[SerializeField] private TMP_InputField _playerNameInput;
+    [SerializeField] private TMP_Text _playerNameLabel;
+    //private bool _isPlayerNameChanging;
     
     void Start()
     {
@@ -40,6 +45,8 @@ public class LobbyNetworkManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         _statusField.text = "Connected to master server";
+        //PhotonNetwork.NickName = "Player" + Random.Range(0, 5000);
+        _playerNameLabel.text = PhotonNetwork.NickName;
         PhotonNetwork.JoinLobby();
     }
 
@@ -105,6 +112,45 @@ public class LobbyNetworkManager : MonoBehaviourPunCallbacks
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        UpdatePlayerList();
+    }
+
+    public void OnChangePlayerNamePressed()
+    {
+        //if (_isPlayerNameChanging == false)
+        //{
+        //    _playerNameInput.text = _playerNameLabel.text;
+        //    _playerNameLabel.gameObject.SetActive(false);
+        //    _playerNameInput.gameObject.SetActive(true);
+        //    _isPlayerNameChanging = true;
+        //}
+        //else
+        //{
+        //    // check for empty or long names
+        //    if (string.IsNullOrEmpty(_playerNameInput.text) == false && _playerNameInput.text.Length <= 12)
+        //    {
+        //        _playerNameLabel.text = _playerNameInput.text;
+        //        PhotonNetwork.LocalPlayer.NickName = _playerNameInput.text;
+        //        if (photonView.IsMine)
+        //            Debug.Log("IsMine");
+        //        else
+        //            Debug.Log("Isn't mine");
+
+        //        Debug.Log(photonView);
+        //        // TODO: Doesn't work, don't know how to set photonView, but maybe in VR it is not needed
+        //        // since it is difficult to type
+        //        //photonView.RPC("ForcePlayerListUpdate", RpcTarget.All);
+        //    }
+
+        //    _playerNameLabel.gameObject.SetActive(true);
+        //    _playerNameInput.gameObject.SetActive(false);
+        //    _isPlayerNameChanging = false;
+        //}
+    }
+
+    [PunRPC]
+    public void ForcePlayerListUpdate()
     {
         UpdatePlayerList();
     }
@@ -192,10 +238,10 @@ public class LobbyNetworkManager : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
-        if (!string.IsNullOrEmpty(_roomInput.text))
-        {
-            PhotonNetwork.CreateRoom(_roomInput.text, new RoomOptions() { MaxPlayers = 5 }, null);
-        }
+        //if (!string.IsNullOrEmpty(_roomInput.text))
+        //{
+        PhotonNetwork.CreateRoom(PhotonNetwork.NickName + "'s Room", new RoomOptions() { MaxPlayers = 5 }, null);
+        //}
     }
 
     public void LeaveRoom()
