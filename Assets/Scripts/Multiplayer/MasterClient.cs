@@ -28,6 +28,15 @@ public class MasterClient : MonoBehaviour
 
         PhotonView pv = pickedSeeker.GetComponent<PhotonView>();
         pv.RPC("SetSeeker", RpcTarget.All);
+
+        foreach (GameObject player in players)
+        {
+            if (player != pickedSeeker)
+            {
+                PhotonView pvHider = player.GetComponent<PhotonView>();
+                pvHider.RPC("SetHider", RpcTarget.All);
+            }
+        }
     }
 
     [PunRPC]

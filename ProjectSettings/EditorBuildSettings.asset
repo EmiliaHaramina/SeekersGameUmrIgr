@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Samples/Animation Rigging/1.2.0/Animation Rigging Constraint Samples/Scenes/Main
       Menu.unity
     guid: 553f197ea54710c46998b9761fb1ac19
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenuScene.unity
     guid: 6d003cdc697aae547a5af7e2ccb235ca
   - enabled: 1

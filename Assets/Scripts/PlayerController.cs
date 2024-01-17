@@ -11,5 +11,13 @@ public class PlayerController : MonoBehaviour
     public void SetSeeker()
     {
         isSeeker = true;
+        gameObject.tag = "seeker";
+    }
+
+    [PunRPC]
+    public void SetHider()
+    {
+        Debug.Log("Hiders set");
+        gameObject.tag = "hider";
     }
 }
