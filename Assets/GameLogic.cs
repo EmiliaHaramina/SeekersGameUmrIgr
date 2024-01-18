@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -51,11 +52,11 @@ public class GameLogic : MonoBehaviour
     public void GameOver(bool hidersWon) {
         if (hidersWon)
         {//hiders won
-
+            PhotonNetwork.LoadLevel("GameOverSceneHidersWon");
         }
         else 
         {// hider lost 
-        
+            PhotonNetwork.LoadLevel("GameOverSceneHidersLost");
         }
     }
 
