@@ -14,7 +14,7 @@ public class CloneAbility : Ability
 
     public override float Cooldown
     {
-        get { return 6f; }
+        get { return 30f; }
         set { }
     }
 

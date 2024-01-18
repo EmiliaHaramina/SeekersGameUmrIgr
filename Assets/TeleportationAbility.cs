@@ -7,7 +7,7 @@ public class TeleportationAbility : Ability
 {
     [SerializeField] private List<XRRayInteractor> _teleportInteractors;
 
-    private float _teleportationDuration = 4f;
+    private float _teleportationDuration = 2f;
 
     public override string Name
     {
@@ -16,7 +16,7 @@ public class TeleportationAbility : Ability
 
     public override float Cooldown
     {
-        get { return 6f; }
+        get { return 30f; }
         set { }
     }
 

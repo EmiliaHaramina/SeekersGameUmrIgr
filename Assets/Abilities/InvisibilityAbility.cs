@@ -7,7 +7,7 @@ using UnityEngine;
 public class InvisibilityAbility : Ability
 {
     private GameObject _caller;
-    private float _invisibilityDuration = 4f;
+    private float _invisibilityDuration = 3f;
 
     public override string Name
     {
