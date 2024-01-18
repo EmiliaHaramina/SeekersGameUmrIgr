@@ -21,6 +21,7 @@ public class GameLogic : MonoBehaviour
 
         _hidersCaught = 0;
         _hidersWon = false;
+        PlayerCaughtEvent?.Invoke(this, null);
     }
 
     // Update is called once per frame

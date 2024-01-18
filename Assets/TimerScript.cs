@@ -44,7 +44,7 @@ public class TimerScript : MonoBehaviour
 
     }
 
-    private void ChangePlayerCount(object sender, EventArgs e) {
+    public void ChangePlayerCount(object sender, EventArgs e) {
         _playersAlive = _gameLogic.GetRemainingPlayerCount();
     }
 
