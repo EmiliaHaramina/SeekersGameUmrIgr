@@ -11,9 +11,9 @@ public class PlayerGameLogic : MonoBehaviour
     [SerializeField] PhotonView _photonView;
     [SerializeField] Transform _position;
     [SerializeField] PositionConstraint _posCon;
-    void Start()
-    {
-        gameLogic = GetComponent<GameLogic>();
+    void Start() { 
+    
+        gameLogic = GameObject.Find("GameLogicObject").GetComponent<GameLogic>();
     }
 
     // Update is called once per frame
@@ -24,10 +24,10 @@ public class PlayerGameLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        Debug.Log(collision);
         if (this.tag != "seeker")
         {
-            if (collision.gameObject.tag == "seeker")
+            if (collision.gameObject.tag == "seeker" || collision.transform.parent.gameObject.tag == "seeker")
             {
                 GotCaught();
             }

@@ -2885,6 +2885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1130126483892402146}
   - component: {fileID: 2012452402410813920}
+  - component: {fileID: 6072219383244217862}
   m_Layer: 0
   m_Name: Right Hand
   m_TagString: Untagged
@@ -2924,6 +2925,27 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!65 &6072219383244217862
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682336452153732319}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.06696701, y: 0.15, z: 0.15}
+  m_Center: {x: 0.03435993, y: 0, z: 0}
 --- !u!1 &3753648450463582115
 GameObject:
   m_ObjectHideFlags: 0
@@ -3489,6 +3511,7 @@ GameObject:
   - component: {fileID: 6423248427276606510}
   - component: {fileID: 1958216637067213621}
   - component: {fileID: 6467620590500268077}
+  - component: {fileID: 1804727729491556295}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Untagged
@@ -3708,6 +3731,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMinimum: 0.05
   lerpFactor: 0.3
+--- !u!65 &1804727729491556295
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090772935072666402}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4339428, y: 1.8862294, z: 0.29135132}
+  m_Center: {x: -0.01026535, y: 0.94119114, z: -0.016830444}
 --- !u!1 &5194882445876389869
 GameObject:
   m_ObjectHideFlags: 0
@@ -4348,6 +4392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2345727108972012333}
   - component: {fileID: 172609820119687801}
+  - component: {fileID: 40683406844834188}
   m_Layer: 0
   m_Name: Left Hand
   m_TagString: Untagged
@@ -4387,6 +4432,27 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!65 &40683406844834188
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183467445949550517}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.06696701, y: 0.15, z: 0.15}
+  m_Center: {x: -0.034359932, y: 0, z: 0}
 --- !u!1 &6254342466009294226
 GameObject:
   m_ObjectHideFlags: 0
@@ -5687,7 +5753,6 @@ GameObject:
   - component: {fileID: 1093293070844042644}
   - component: {fileID: 1774196104974021142}
   - component: {fileID: 9081779239959423561}
-  - component: {fileID: 4284311605343445715}
   m_Layer: 0
   m_Name: Network Player
   m_TagString: Player
@@ -5811,13 +5876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f239386803a6a4091cbf437df52e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _abilityButtons:
-  - Ability: {fileID: 0}
-    Button: {fileID: 0}
-  - Ability: {fileID: 0}
-    Button: {fileID: 0}
-  - Ability: {fileID: 0}
-    Button: {fileID: 0}
+  _abilityButtons: []
 --- !u!1818360608 &9081779239959423561
 PositionConstraint:
   m_ObjectHideFlags: 0
@@ -5836,27 +5895,6 @@ PositionConstraint:
   m_Active: 0
   m_IsLocked: 0
   m_Sources: []
---- !u!65 &4284311605343445715
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7766014114806282948}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.49294662, y: 1.8852743, z: 0.43899536}
-  m_Center: {x: 0.025547028, y: -0.8552752, z: 0.012466431}
 --- !u!1 &7856159165712681836
 GameObject:
   m_ObjectHideFlags: 0
