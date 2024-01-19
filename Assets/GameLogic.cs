@@ -12,6 +12,9 @@ public class GameLogic : MonoBehaviour
     private int _hidersNum;
     private int _hidersCaught;
     private bool _hidersWon;
+
+    static public string _whoWon = "";
+    
     void Start()
     {
         //Nekako dobit broj hidera u sobi
@@ -68,11 +71,13 @@ public class GameLogic : MonoBehaviour
     public void GameOver(bool hidersWon) {
         if (hidersWon)
         {//hiders won
-            PhotonNetwork.LoadLevel("GameOverSceneHidersWon");
+            _whoWon = "HIDERS WON!";
+            PhotonNetwork.LoadLevel("GameOverScene");
         }
         else 
-        {// hider lost 
-            PhotonNetwork.LoadLevel("GameOverSceneHidersLost");
+        {// hider lost
+            _whoWon = "SEEKER WON!";
+            PhotonNetwork.LoadLevel("GameOverScene");
         }
     }
 

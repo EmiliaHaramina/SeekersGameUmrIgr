@@ -6,6 +6,7 @@ TagManager:
   tags:
   - seeker
   - hider
+  - hand
   layers:
   - Default
   - TransparentFX

@@ -22,7 +22,7 @@ public class PlayerGameLogic : MonoBehaviour
        
     }
 
-    private void OnTriggerEnter(UnityEngine.Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         Debug.Log(other);
         if (this.tag != "seeker")
