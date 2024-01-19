@@ -3489,9 +3489,6 @@ GameObject:
   - component: {fileID: 6423248427276606510}
   - component: {fileID: 1958216637067213621}
   - component: {fileID: 6467620590500268077}
-  - component: {fileID: 1799489424163361118}
-  - component: {fileID: 3396994881297977678}
-  - component: {fileID: 7104693040838978990}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Untagged
@@ -3711,59 +3708,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMinimum: 0.05
   lerpFactor: 0.3
---- !u!114 &1799489424163361118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5090772935072666402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f239386803a6a4091cbf437df52e44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _abilityButtons:
-  - Ability: {fileID: 0}
-    Button: {fileID: 0}
-  - Ability: {fileID: 0}
-    Button: {fileID: 0}
-  - Ability: {fileID: 0}
-    Button: {fileID: 0}
---- !u!1818360608 &3396994881297977678
-PositionConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5090772935072666402}
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: -14.980335, y: 0.006000042, z: 9.346463}
-  m_TranslationOffset: {x: 0, y: 0, z: 0}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_Active: 1
-  m_IsLocked: 1
-  m_Sources: []
---- !u!114 &7104693040838978990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5090772935072666402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b049ced93d12a74988bc9b027896a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameLogic: {fileID: 0}
-  _photonView: {fileID: 0}
-  _position: {fileID: 715315156047631323}
-  _posCon: {fileID: 3396994881297977678}
 --- !u!1 &5194882445876389869
 GameObject:
   m_ObjectHideFlags: 0
@@ -5740,6 +5684,9 @@ GameObject:
   - component: {fileID: 214498314918213539}
   - component: {fileID: 3783637567530709393}
   - component: {fileID: -3214502821881868927}
+  - component: {fileID: 1093293070844042644}
+  - component: {fileID: 1774196104974021142}
+  - component: {fileID: 9081779239959423561}
   m_Layer: 0
   m_Name: Network Player
   m_TagString: Player
@@ -5835,6 +5782,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSeeker: 0
+--- !u!114 &1093293070844042644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7766014114806282948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b049ced93d12a74988bc9b027896a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameLogic: {fileID: 0}
+  _photonView: {fileID: -8248295895273304721}
+  _position: {fileID: 6521206510322646882}
+  _posCon: {fileID: 9081779239959423561}
+--- !u!114 &1774196104974021142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7766014114806282948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f239386803a6a4091cbf437df52e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilityButtons:
+  - Ability: {fileID: 0}
+    Button: {fileID: 0}
+  - Ability: {fileID: 0}
+    Button: {fileID: 0}
+  - Ability: {fileID: 0}
+    Button: {fileID: 0}
+--- !u!1818360608 &9081779239959423561
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7766014114806282948}
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 10.483785, y: 1.6041702, z: -262.833}
+  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_Active: 0
+  m_IsLocked: 0
+  m_Sources: []
 --- !u!1 &7856159165712681836
 GameObject:
   m_ObjectHideFlags: 0

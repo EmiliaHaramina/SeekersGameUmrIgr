@@ -7,14 +7,13 @@ using UnityEngine.Animations;
 public class PlayerGameLogic : MonoBehaviour
 {
     // Start is called before the first frame update
-    private bool _isHider;
     [SerializeField] GameLogic gameLogic;
     [SerializeField] PhotonView _photonView;
     [SerializeField] Transform _position;
     [SerializeField] PositionConstraint _posCon;
     void Start()
     {
-        _isHider = true;
+        gameLogic = GetComponent<GameLogic>();
     }
 
     // Update is called once per frame
@@ -26,7 +25,7 @@ public class PlayerGameLogic : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
-        if (_isHider || this.tag != "seeker")
+        if (this.tag != "seeker")
         {
             if (collision.gameObject.tag == "seeker")
             {
