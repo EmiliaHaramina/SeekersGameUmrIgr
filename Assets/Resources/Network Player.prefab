@@ -1531,7 +1531,6 @@ GameObject:
   - component: {fileID: 4164482451044154808}
   - component: {fileID: 895361242483298526}
   - component: {fileID: 7075639402360430300}
-  - component: {fileID: 4598933706160400334}
   - component: {fileID: 3668586363352308086}
   m_Layer: 0
   m_Name: Capsule
@@ -1539,7 +1538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8051733462254391863
 Transform:
   m_ObjectHideFlags: 0
@@ -1622,37 +1621,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 2.5077126, y: 6.3818502, z: 1.739996}
   m_Center: {x: -0.030172765, y: 0.18613577, z: -0.008132942}
---- !u!54 &4598933706160400334
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2842537689856132124}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &3668586363352308086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2926,6 +2898,8 @@ GameObject:
   - component: {fileID: 2012452402410813920}
   - component: {fileID: 6072219383244217862}
   - component: {fileID: 963618087011780115}
+  - component: {fileID: 7477968735111229608}
+  - component: {fileID: 2751330391749319133}
   m_Layer: 0
   m_Name: Right Hand
   m_TagString: hand
@@ -3013,6 +2987,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7477968735111229608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682336452153732319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57ac95afe9020d449041ab9f3c774d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2751330391749319133
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682336452153732319}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.23426056, y: 0.6941658, z: 0.17819214}
+  m_Center: {x: -0.18330193, y: -0.15291709, z: -0.09593201}
 --- !u!1 &3753648450463582115
 GameObject:
   m_ObjectHideFlags: 0
@@ -4439,6 +4446,7 @@ GameObject:
   - component: {fileID: 172609820119687801}
   - component: {fileID: 40683406844834188}
   - component: {fileID: 6785854715389607199}
+  - component: {fileID: 5376861231645488124}
   m_Layer: 0
   m_Name: Left Hand
   m_TagString: hand
@@ -4526,6 +4534,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5376861231645488124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183467445949550517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57ac95afe9020d449041ab9f3c774d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6254342466009294226
 GameObject:
   m_ObjectHideFlags: 0
