@@ -22,12 +22,12 @@ public class PlayerGameLogic : MonoBehaviour
        
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(UnityEngine.Collider other)
     {
-        Debug.Log(collision);
+        Debug.Log(other);
         if (this.tag != "seeker")
         {
-            if (collision.gameObject.tag == "seeker" || collision.transform.parent.gameObject.tag == "seeker")
+            if (other.gameObject.tag == "seeker" || other.transform.parent.gameObject.tag == "seeker")
             {
                 GotCaught();
             }
