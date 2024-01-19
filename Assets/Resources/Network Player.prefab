@@ -2899,7 +2899,6 @@ GameObject:
   - component: {fileID: 6072219383244217862}
   - component: {fileID: 963618087011780115}
   - component: {fileID: 7477968735111229608}
-  - component: {fileID: 2751330391749319133}
   m_Layer: 0
   m_Name: Right Hand
   m_TagString: hand
@@ -2999,27 +2998,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57ac95afe9020d449041ab9f3c774d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &2751330391749319133
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3682336452153732319}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.23426056, y: 0.6941658, z: 0.17819214}
-  m_Center: {x: -0.18330193, y: -0.15291709, z: -0.09593201}
 --- !u!1 &3753648450463582115
 GameObject:
   m_ObjectHideFlags: 0
