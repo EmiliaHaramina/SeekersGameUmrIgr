@@ -15,7 +15,22 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         //Nekako dobit broj hidera u sobi
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] players1 = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] players2 = GameObject.FindGameObjectsWithTag("seeker");
+        GameObject[] players3 = GameObject.FindGameObjectsWithTag("hider");
+        GameObject[] players = { };
+        foreach (GameObject player in players1)
+        {
+            players[players.Length] = player;
+        }
+        foreach (GameObject player in players2)
+        {
+            players[players.Length] = player;
+        }
+        foreach (GameObject player in players3)
+        {
+            players[players.Length] = player;
+        }
         _hidersNum = players.Length - 1;
         //_playerGameLogic.SetHiderBool();
 

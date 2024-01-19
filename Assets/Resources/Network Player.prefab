@@ -2886,6 +2886,7 @@ GameObject:
   - component: {fileID: 1130126483892402146}
   - component: {fileID: 2012452402410813920}
   - component: {fileID: 6072219383244217862}
+  - component: {fileID: 24503693659235804}
   m_Layer: 0
   m_Name: Right Hand
   m_TagString: Untagged
@@ -2946,6 +2947,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06696701, y: 0.15, z: 0.15}
   m_Center: {x: 0.03435993, y: 0, z: 0}
+--- !u!54 &24503693659235804
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682336452153732319}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3753648450463582115
 GameObject:
   m_ObjectHideFlags: 0
@@ -3512,6 +3540,7 @@ GameObject:
   - component: {fileID: 1958216637067213621}
   - component: {fileID: 6467620590500268077}
   - component: {fileID: 1804727729491556295}
+  - component: {fileID: 5056113828159000435}
   m_Layer: 0
   m_Name: PlayerTest
   m_TagString: Untagged
@@ -3750,8 +3779,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4339428, y: 1.8862294, z: 0.29135132}
-  m_Center: {x: -0.01026535, y: 0.94119114, z: -0.016830444}
+  m_Size: {x: 0.4339428, y: 1.197449, z: 0.29135132}
+  m_Center: {x: -0.01026535, y: 1.2855815, z: -0.016830444}
+--- !u!54 &5056113828159000435
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090772935072666402}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5194882445876389869
 GameObject:
   m_ObjectHideFlags: 0
@@ -4393,6 +4449,7 @@ GameObject:
   - component: {fileID: 2345727108972012333}
   - component: {fileID: 172609820119687801}
   - component: {fileID: 40683406844834188}
+  - component: {fileID: 2235637128809452845}
   m_Layer: 0
   m_Name: Left Hand
   m_TagString: Untagged
@@ -4453,6 +4510,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06696701, y: 0.15, z: 0.15}
   m_Center: {x: -0.034359932, y: 0, z: 0}
+--- !u!54 &2235637128809452845
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183467445949550517}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6254342466009294226
 GameObject:
   m_ObjectHideFlags: 0
