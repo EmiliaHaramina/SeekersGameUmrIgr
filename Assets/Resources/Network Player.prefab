@@ -5687,6 +5687,7 @@ GameObject:
   - component: {fileID: 1093293070844042644}
   - component: {fileID: 1774196104974021142}
   - component: {fileID: 9081779239959423561}
+  - component: {fileID: 4284311605343445715}
   m_Layer: 0
   m_Name: Network Player
   m_TagString: Player
@@ -5835,6 +5836,27 @@ PositionConstraint:
   m_Active: 0
   m_IsLocked: 0
   m_Sources: []
+--- !u!65 &4284311605343445715
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7766014114806282948}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.49294662, y: 1.8852743, z: 0.43899536}
+  m_Center: {x: 0.025547028, y: -0.8552752, z: 0.012466431}
 --- !u!1 &7856159165712681836
 GameObject:
   m_ObjectHideFlags: 0
