@@ -20,10 +20,11 @@ public class CollisionDetector : MonoBehaviour
         timer += Time.deltaTime;
 
 
-        // Check if 10 seconds have passed
-        if (timer >= 10f && !_startGame)
+        // Check if 15 seconds have passed
+        if (timer >= 15f && !_startGame)
         {
             _startGame = true;
+            //mozda dodat spawnat playere na svoja mjesta
         }
     }
     /*
@@ -46,7 +47,7 @@ public class CollisionDetector : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
 
-        if (this.transform.parent.tag == "seeker" || _startGame)
+        if (this.transform.parent.tag == "seeker" && _startGame)
         {
             if (col.transform.parent.tag == "hider" || col.transform.parent.tag == "Player")
             {
