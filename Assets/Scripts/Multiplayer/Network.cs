@@ -9,12 +9,11 @@ public class Network : MonoBehaviour
 
     private GameObject spawnedPlayerPrefab;
 
-    [SerializeField] private GameObject seekerSpawnPoint;
     [SerializeField] private GameObject hiderSpawnPoint;
 
     private void Start()
     {
-        spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", seekerSpawnPoint.transform.position, seekerSpawnPoint.transform.rotation);
+        spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", hiderSpawnPoint.transform.position, hiderSpawnPoint.transform.rotation);
         if (PhotonNetwork.IsMasterClient)
         {
             masterClient.Initialize();

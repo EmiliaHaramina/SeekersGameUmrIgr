@@ -22,7 +22,7 @@ public class PlayerGameLogic : MonoBehaviour
        
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("JA ISTO RADIM SAD" + other.transform.name);
         if (this.tag != "seeker")

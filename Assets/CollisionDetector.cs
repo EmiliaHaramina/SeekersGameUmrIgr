@@ -18,14 +18,12 @@ public class CollisionDetector : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        Debug.Log(col.transform.name);
-        Debug.Log(this.transform.parent.gameObject.tag);
+        Debug.Log("Entered Collison with: " + col.transform.name + " --- This Parent name:" + this.transform.parent.gameObject.tag);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
-        Debug.Log(this.transform.parent.gameObject.tag);
+        Debug.Log("Entered Trigger with: " + other.name + " --- This Parent name:" + this.transform.parent.gameObject.tag);
     }
 
 
