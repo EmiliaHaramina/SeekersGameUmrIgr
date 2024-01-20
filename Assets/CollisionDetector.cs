@@ -5,6 +5,8 @@ using UnityEngine;
 public class CollisionDetector : MonoBehaviour
 {
     [SerializeField] PlayerGameLogic _pGL;
+    float timer = 0;
+    bool _startGame = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +16,16 @@ public class CollisionDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
+        timer += Time.deltaTime;
+
+
+        // Check if 10 seconds have passed
+        if (timer >= 10f && !_startGame)
+        {
+            _startGame = true;
+        }
+    }
     /*
     private void OnCollisionEnter(Collision col)
     {
@@ -36,7 +45,8 @@ public class CollisionDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (this.transform.parent.tag == "seeker")
+
+        if (this.transform.parent.tag == "seeker" || _startGame)
         {
             if (col.transform.parent.tag == "hider" || col.transform.parent.tag == "Player")
             {
