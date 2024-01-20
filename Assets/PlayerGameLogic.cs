@@ -26,8 +26,11 @@ public class PlayerGameLogic : MonoBehaviour
        
     }
 
-    public void SetMoveSpeed(float speed) {
+    public void SetMoveSpeed(float speed)
+    {
+        if (GetComponent<PhotonView>().IsMine) { 
         _moveSpeed.transform.GetComponent<DynamicMoveProvider>().moveSpeed = speed;
+        }
     }
 
     public void GotCaught(GameObject go)
