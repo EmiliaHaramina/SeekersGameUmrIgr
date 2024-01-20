@@ -2,22 +2,23 @@ using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class PlayerAbilityComponent : MonoBehaviour
 {
     [SerializeField] private int _numberOfAbilities = 3;
-    private List<AbilityButton> _abilityButtons;
+    [SerializeField] private AbilityButton[] _abilityButtons;
 
     bool onCooldown;
     AbilityButton lastUsedAbility;
 
-    private void OnEnable()
-    {
-        foreach (AbilityButton abilityButton in _abilityButtons)
-        {
-            abilityButton.Button.onClick.AddListener(() => UseAbility(abilityButton));
-        }
-    }
+    //private void OnEnable()
+    //{
+    //    foreach (AbilityButton abilityButton in _abilityButtons)
+    //    {
+    //        abilityButton.Button.onClick.AddListener(() => UseAbility(abilityButton));
+    //    }
+    //}
 
     private void OnDisable()
     {
@@ -29,33 +30,36 @@ public class PlayerAbilityComponent : MonoBehaviour
 
     void Start()
     {
+        _abilityButtons = new AbilityButton[_numberOfAbilities];
+
         ToggleCooldown(false);
+
+        var buttons = GameObject.FindGameObjectsWithTag("ButtonTag");
+
+        GameObject abilities = GameObject.Find("Abilities");
+
+        CloneAbility cloneAbility = abilities.GetComponentInChildren<CloneAbility>();
+        TeleportationAbility tpAbility = abilities.GetComponentInChildren<TeleportationAbility>();
+        InvisibilityAbility invisAbility = abilities.GetComponentInChildren<InvisibilityAbility>();
+
+        _abilityButtons[0] = new AbilityButton(cloneAbility, buttons[2].GetComponent<Button>());
+        _abilityButtons[1] = new AbilityButton(invisAbility, buttons[1].GetComponent<Button>());
+        _abilityButtons[2] = new AbilityButton(tpAbility, buttons[0].GetComponent<Button>());
+
+        //_abilityButtons[0].Ability = cloneAbility;
+        //_abilityButtons[0].Button = buttons[2].GetComponent<Button>();
+
+        //_abilityButtons[1].Ability = invisAbility;
+        //_abilityButtons[1].Button = buttons[1].GetComponent<Button>();
+
+        //_abilityButtons[2].Ability = tpAbility;
+        //_abilityButtons[2].Button = buttons[0].GetComponent<Button>();
 
         foreach (AbilityButton abilityButton in _abilityButtons)
         {
+            abilityButton.Button.onClick.AddListener(() => UseAbility(abilityButton));
             SetButton(abilityButton);
         }
-
-        _abilityButtons = new List<AbilityButton>(_numberOfAbilities);
-
-        XROrigin xrRig = FindObjectOfType<XROrigin>();
-
-        Button cloneAbilityButton = xrRig.transform.Find("Camera Offset/Main Camera/Follow GameObject/Hand Scroll View/Panel/Scroll View/Viewport/Content/CloneButton").GetComponent<Button>();
-        Button invisAbilityButton = xrRig.transform.Find("Camera Offset/Main Camera/Follow GameObject/Hand Scroll View/Panel/Scroll View/Viewport/Content/InvisButton").GetComponent<Button>();
-        Button tpAbilityButton = xrRig.transform.Find("Camera Offset/Main Camera/Follow GameObject/Hand Scroll View/Panel/Scroll View/Viewport/Content/TpButton").GetComponent<Button>();
-
-        CloneAbility cloneAbility = FindObjectOfType<CloneAbility>();
-        TeleportationAbility tpAbility = FindObjectOfType<TeleportationAbility>();
-        InvisibilityAbility invisAbility = FindObjectOfType<InvisibilityAbility>();
-
-        _abilityButtons[0].Ability = cloneAbility;
-        _abilityButtons[0].Button = cloneAbilityButton;
-
-        _abilityButtons[1].Ability = invisAbility;
-        _abilityButtons[1].Button = invisAbilityButton;
-
-        _abilityButtons[2].Ability = tpAbility;
-        _abilityButtons[2].Button = tpAbilityButton;
     }
 
     public void UseAbility(AbilityButton abilityButton)

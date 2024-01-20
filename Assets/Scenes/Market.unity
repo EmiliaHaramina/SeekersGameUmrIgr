@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 70599543}
   m_Layer: 0
   m_Name: TpButton
-  m_TagString: Untagged
+  m_TagString: ButtonTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16840,7 +16840,7 @@ GameObject:
   - component: {fileID: 1259433916}
   m_Layer: 0
   m_Name: InvisButton
-  m_TagString: Untagged
+  m_TagString: ButtonTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19636,7 +19636,7 @@ GameObject:
   - component: {fileID: 1501917311}
   m_Layer: 0
   m_Name: CloneButton
-  m_TagString: Untagged
+  m_TagString: ButtonTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

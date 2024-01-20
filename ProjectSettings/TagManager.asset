@@ -10,6 +10,7 @@ TagManager:
   - SeekerSpawnPoint
   - HiderSpawnPoint
   - head
+  - ButtonTag
   layers:
   - Default
   - TransparentFX

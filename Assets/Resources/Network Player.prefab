@@ -6075,6 +6075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f239386803a6a4091cbf437df52e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _numberOfAbilities: 3
   _abilityButtons:
   - Ability: {fileID: 0}
     Button: {fileID: 0}

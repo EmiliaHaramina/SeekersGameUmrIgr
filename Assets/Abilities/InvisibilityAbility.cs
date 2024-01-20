@@ -58,4 +58,14 @@ public class InvisibilityAbility : Ability
         transform.Find("Mesh").gameObject.SetActive(true);
         transform.Find("Armors").gameObject.SetActive(true);
     }
+
+    public override Ability Get()
+    {
+        return this;
+    }
+
+    public override void Set(Ability ability)
+    {
+        throw new System.NotImplementedException();
+    }
 }

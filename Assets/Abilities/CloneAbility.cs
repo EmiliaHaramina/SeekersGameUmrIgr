@@ -38,4 +38,14 @@ public class CloneAbility : Ability
 
         GameObject.Instantiate(clone, position, rotation);
     }
+
+    public override Ability Get()
+    {
+        return this;
+    }
+
+    public override void Set(Ability ability)
+    {
+        throw new System.NotImplementedException();
+    }
 }
