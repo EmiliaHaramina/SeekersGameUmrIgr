@@ -7,6 +7,8 @@ TagManager:
   - seeker
   - hider
   - hand
+  - SeekerSpawnPoint
+  - HiderSpawnPoint
   layers:
   - Default
   - TransparentFX

@@ -48,6 +48,10 @@ public class TimerScript : MonoBehaviour
         _playersAlive = _gameLogic.GetRemainingPlayerCount();
     }
 
+    public void ChangePlayerCountMethod() {
+        _playersAlive = _gameLogic.GetRemainingPlayerCount();
+    }
+
     void updateTimer(float currentTime)
     {
         currentTime += 1;

@@ -18,26 +18,15 @@ public class CollisionDetector : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        Debug.Log(col);
-        Debug.Log(this.transform.parent.transform.parent.gameObject.tag);
+        Debug.Log(col.transform.name);
+        Debug.Log(this.transform.parent.gameObject.tag);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
-        Debug.Log(this.transform.parent.transform.parent.gameObject.tag);
+        Debug.Log(other.name);
+        Debug.Log(this.transform.parent.gameObject.tag);
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log(other);
-        Debug.Log(this.transform.parent.transform.parent.gameObject.tag);
-    }
-
-    private void OnCollisionStay(Collision col)
-    {
-        Debug.Log(col);
-        Debug.Log(this.transform.parent.transform.parent.gameObject.tag);
-    }
 
 }

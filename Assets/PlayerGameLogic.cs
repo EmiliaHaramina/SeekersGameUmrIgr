@@ -24,7 +24,7 @@ public class PlayerGameLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log(other);
+        Debug.Log("JA ISTO RADIM SAD" + other.transform.name);
         if (this.tag != "seeker")
         {
             if (other.gameObject.tag == "seeker" || other.transform.parent.gameObject.tag == "seeker")

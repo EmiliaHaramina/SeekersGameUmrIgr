@@ -4391,7 +4391,7 @@ GameObject:
   - component: {fileID: 342462475}
   m_Layer: 0
   m_Name: HiderSpawnPoint
-  m_TagString: Untagged
+  m_TagString: HiderSpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4405,7 +4405,7 @@ Transform:
   m_GameObject: {fileID: 342462474}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.768, y: 0.18799973, z: 10.614}
+  m_LocalPosition: {x: -14.81, y: 1.01, z: 9.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17057,7 +17057,7 @@ GameObject:
   - component: {fileID: 1216882158}
   m_Layer: 0
   m_Name: SeekerSpawnPoint
-  m_TagString: Untagged
+  m_TagString: SeekerSpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17071,7 +17071,7 @@ Transform:
   m_GameObject: {fileID: 1216882157}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.768, y: 0.18799973, z: 10.614}
+  m_LocalPosition: {x: -24.67, y: 1.345, z: -14.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21824,6 +21824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de931bd3e8c7745449537fd46aef6df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timer: {fileID: 569465603}
 --- !u!4 &1586450518
 Transform:
   m_ObjectHideFlags: 0
