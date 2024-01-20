@@ -22,11 +22,11 @@ public class CollisionDetector : MonoBehaviour
        if (this.transform.parent.tag == "seeker")
             { 
             if(col.transform.parent.tag == "hider" || col.transform.parent.tag == "Player"){
-                _pGL.GotCaught(col.gameObject);
+                _pGL.GotCaught(col.transform.parent.gameObject);
             }
             if (col.transform.parent.tag == "head") {
                 if (col.transform.parent.transform.parent.tag == "hider" || col.transform.parent.transform.parent.tag == "Player") {
-                    _pGL.GotCaught(col.gameObject);
+                    _pGL.GotCaught(col.transform.parent.transform.parent.gameObject);
                 }
             }
         }
