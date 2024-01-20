@@ -49,6 +49,9 @@ MonoBehaviour:
   - SetHider
   - RPC_Died
   - GameOverEveryone
+  - RPC_Clone
+  - RPC_TurnInvisible
+  - RPC_TurnVisible
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

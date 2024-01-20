@@ -982,7 +982,7 @@ GameObject:
   - component: {fileID: 70599544}
   - component: {fileID: 70599543}
   m_Layer: 0
-  m_Name: Ability (2)
+  m_Name: TpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14319,7 +14319,7 @@ PrefabInstance:
     - target: {fileID: 5764884531789171377, guid: 30194602712a0eb4980318e2379d1bb8,
         type: 3}
       propertyPath: m_Name
-      value: Hand Menu Setup With ScrollView Variant
+      value: Hand Menu
       objectReference: {fileID: 0}
     - target: {fileID: 6265241855250672022, guid: 30194602712a0eb4980318e2379d1bb8,
         type: 3}
@@ -16839,7 +16839,7 @@ GameObject:
   - component: {fileID: 1259433917}
   - component: {fileID: 1259433916}
   m_Layer: 0
-  m_Name: Ability (1)
+  m_Name: InvisButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19635,7 +19635,7 @@ GameObject:
   - component: {fileID: 1501917312}
   - component: {fileID: 1501917311}
   m_Layer: 0
-  m_Name: Ability
+  m_Name: CloneButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

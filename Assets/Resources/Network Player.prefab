@@ -6075,7 +6075,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f239386803a6a4091cbf437df52e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _abilityButtons: []
+  _abilityButtons:
+  - Ability: {fileID: 0}
+    Button: {fileID: 0}
+  - Ability: {fileID: 0}
+    Button: {fileID: 0}
+  - Ability: {fileID: 0}
+    Button: {fileID: 0}
 --- !u!1818360608 &9081779239959423561
 PositionConstraint:
   m_ObjectHideFlags: 0

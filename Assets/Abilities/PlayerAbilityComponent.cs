@@ -1,9 +1,12 @@
 using System.Collections.Generic;
+using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAbilityComponent : MonoBehaviour
 {
-    [SerializeField] private List<AbilityButton> _abilityButtons;
+    [SerializeField] private int _numberOfAbilities = 3;
+    private List<AbilityButton> _abilityButtons;
 
     bool onCooldown;
     AbilityButton lastUsedAbility;
@@ -32,6 +35,27 @@ public class PlayerAbilityComponent : MonoBehaviour
         {
             SetButton(abilityButton);
         }
+
+        _abilityButtons = new List<AbilityButton>(_numberOfAbilities);
+
+        XROrigin xrRig = FindObjectOfType<XROrigin>();
+
+        Button cloneAbilityButton = xrRig.transform.Find("Camera Offset/Main Camera/Follow GameObject/Hand Scroll View/Panel/Scroll View/Viewport/Content/CloneButton").GetComponent<Button>();
+        Button invisAbilityButton = xrRig.transform.Find("Camera Offset/Main Camera/Follow GameObject/Hand Scroll View/Panel/Scroll View/Viewport/Content/InvisButton").GetComponent<Button>();
+        Button tpAbilityButton = xrRig.transform.Find("Camera Offset/Main Camera/Follow GameObject/Hand Scroll View/Panel/Scroll View/Viewport/Content/TpButton").GetComponent<Button>();
+
+        CloneAbility cloneAbility = FindObjectOfType<CloneAbility>();
+        TeleportationAbility tpAbility = FindObjectOfType<TeleportationAbility>();
+        InvisibilityAbility invisAbility = FindObjectOfType<InvisibilityAbility>();
+
+        _abilityButtons[0].Ability = cloneAbility;
+        _abilityButtons[0].Button = cloneAbilityButton;
+
+        _abilityButtons[1].Ability = invisAbility;
+        _abilityButtons[1].Button = invisAbilityButton;
+
+        _abilityButtons[2].Ability = tpAbility;
+        _abilityButtons[2].Button = tpAbilityButton;
     }
 
     public void UseAbility(AbilityButton abilityButton)
