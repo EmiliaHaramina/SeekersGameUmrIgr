@@ -16,7 +16,7 @@ public class Network : MonoBehaviour
     private void Start()
     {
 
-        PhotonNetwork.Instantiate("NetworkPlayerPrefab", GetNextSpawnPoint(), Quaternion.identity);
+        PhotonNetwork.Instantiate("Network Player", GetNextSpawnPoint(), Quaternion.identity);
    
 
 
