@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -49,10 +50,9 @@ public class GameLogic : MonoBehaviour
         PlayerCaughtEvent?.Invoke(this, null);
         //_timer.ChangePlayerCountMethod();
 
-        if (_hidersCaught == _hidersNum) {
+        if (_hidersCaught >= _hidersNum) {
             GameOver(_hidersWon);
         }
-        //pozvat RPC
 
     }
 
@@ -101,5 +101,6 @@ public class GameLogic : MonoBehaviour
             PhotonNetwork.LoadLevel("GameOverScene");
         }
     }
+
 
 }

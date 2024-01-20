@@ -27,6 +27,7 @@ public class PlayerGameLogic : MonoBehaviour
         //lokalno
         go.transform.position = new Vector3(-14.9803352f, 16.507f, 9.3464632f);
         go.GetComponent<PositionConstraint>().enabled = true;
+        go.SetActive(false);
 
         gameLogic.PlayerCaught();
         PhotonView _photonView =  go.GetComponent<PhotonView>();
@@ -42,6 +43,7 @@ public class PlayerGameLogic : MonoBehaviour
         //prebacit kameru svim ostalima
         transform.position = new Vector3(-14.9803352f, 16.507f, 9.3464632f);
         GetComponent<PositionConstraint>().enabled = true;
+        gameObject.SetActive(false);
         gameLogic.PlayerCaught();
     }
 
