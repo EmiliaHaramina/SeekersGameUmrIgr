@@ -25,7 +25,7 @@ public class InvisibilityAbility : Ability
     {
         _caller = caller;
         PhotonView _photonView = caller.GetComponent<PhotonView>();
-        _photonView.RPC("RPC_TurnInvisible", RpcTarget.Others);
+        _photonView.RPC("RPC_TurnInvisible", RpcTarget.All);
 
         caller.transform.Find("PlayerTest").gameObject.SetActive(false);
         //caller.transform.Find("Armors").gameObject.SetActive(false);
@@ -34,7 +34,7 @@ public class InvisibilityAbility : Ability
 
     [PunRPC]
     public void RPC_TurnInvisible() {
-        if (!GetComponent<PhotonView>().IsMine) { return; }
+        if (GetComponent<PhotonView>().IsMine) { return; }
 
         transform.Find("PlayerTest").gameObject.SetActive(false);
         //transform.Find("Armors").gameObject.SetActive(false);
@@ -53,7 +53,7 @@ public class InvisibilityAbility : Ability
     [PunRPC]
     public void RPC_TurnVisible()
     {
-        if (!GetComponent<PhotonView>().IsMine) { return; }
+        if (GetComponent<PhotonView>().IsMine) { return; }
 
         transform.Find("PlayerTest").gameObject.SetActive(true);
         //transform.Find("Armors").gameObject.SetActive(true);
