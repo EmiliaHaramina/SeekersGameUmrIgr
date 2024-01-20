@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class PlayerGameLogic : MonoBehaviour
 {
@@ -12,15 +13,21 @@ public class PlayerGameLogic : MonoBehaviour
     [SerializeField] Transform _position;
     [SerializeField] PositionConstraint _posCon;
     [SerializeField] Canvas _canvas;
+    [SerializeField] GameObject _moveSpeed;
     void Start() { 
     
         gameLogic = GameObject.Find("GameLogicObject").GetComponent<GameLogic>();
+        _moveSpeed = GameObject.FindGameObjectWithTag("MoveSpeed");
     }
 
     // Update is called once per frame
     void Update()
     {
        
+    }
+
+    public void SetMoveSpeed(float speed) {
+        _moveSpeed.transform.GetComponent<DynamicMoveProvider>().moveSpeed = speed;
     }
 
     public void GotCaught(GameObject go)

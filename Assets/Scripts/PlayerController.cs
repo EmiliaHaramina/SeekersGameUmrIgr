@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
         isSeeker = true;
         gameObject.tag = "seeker";
         gameObject.transform.position = GameObject.FindGameObjectWithTag("SeekerSpawnPoint").transform.position;
+        gameObject.transform.GetComponent<PlayerGameLogic>().SetMoveSpeed(2.2f);
     }
 
     [PunRPC]

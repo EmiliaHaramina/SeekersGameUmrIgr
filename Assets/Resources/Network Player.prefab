@@ -6063,6 +6063,7 @@ MonoBehaviour:
   _position: {fileID: 6521206510322646882}
   _posCon: {fileID: 9081779239959423561}
   _canvas: {fileID: 3401622593566055601}
+  _moveSpeed: {fileID: 0}
 --- !u!114 &1774196104974021142
 MonoBehaviour:
   m_ObjectHideFlags: 0
