@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using Photon.Pun;
 
 public class InvisibilityAbility : Ability
 {
@@ -23,16 +24,38 @@ public class InvisibilityAbility : Ability
     public override void Use(GameObject caller)
     {
         _caller = caller;
+        PhotonView _photonView = caller.GetComponent<PhotonView>();
+        _photonView.RPC("RPC_TurnInvisible", RpcTarget.Others);
+
         caller.transform.Find("Mesh").gameObject.SetActive(false);
         caller.transform.Find("Armors").gameObject.SetActive(false);
         Invoke("TurnVisible", _invisibilityDuration);
     }
 
+    [PunRPC]
+    public void RPC_TurnInvisible() {
+        if (!GetComponent<PhotonView>().IsMine) { return; }
+
+        transform.Find("Mesh").gameObject.SetActive(false);
+        transform.Find("Armors").gameObject.SetActive(false);
+    }
 
     public void TurnVisible()
     {
+        PhotonView _photonView = _caller.GetComponent<PhotonView>();
+        _photonView.RPC("RPC_TurnVisible", RpcTarget.Others);
+
         _caller.transform.Find("Mesh").gameObject.SetActive(true);
         _caller.transform.Find("Armors").gameObject.SetActive(true);
 
+    }
+
+    [PunRPC]
+    public void RPC_TurnVisible()
+    {
+        if (!GetComponent<PhotonView>().IsMine) { return; }
+
+        transform.Find("Mesh").gameObject.SetActive(true);
+        transform.Find("Armors").gameObject.SetActive(true);
     }
 }

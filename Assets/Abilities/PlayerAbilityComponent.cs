@@ -36,7 +36,8 @@ public class PlayerAbilityComponent : MonoBehaviour
 
     public void UseAbility(AbilityButton abilityButton)
     {
-        if (onCooldown) return;
+        if (onCooldown || this.gameObject.tag == "seeker") return;
+        
 
         ToggleCooldown(true);
         SetButton(abilityButton);

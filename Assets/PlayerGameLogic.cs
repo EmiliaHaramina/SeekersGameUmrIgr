@@ -1,20 +1,20 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 
 public class PlayerGameLogic : MonoBehaviour
 {
     // Start is called before the first frame update
-    private bool _isHider;
     [SerializeField] GameLogic gameLogic;
-    [SerializeField] PhotonView _photonView;
     [SerializeField] Transform _position;
     [SerializeField] PositionConstraint _posCon;
-    void Start()
-    {
-        _isHider = true;
+    [SerializeField] Canvas _canvas;
+    void Start() { 
+    
+        gameLogic = GameObject.Find("GameLogicObject").GetComponent<GameLogic>();
     }
 
     // Update is called once per frame
@@ -23,36 +23,31 @@ public class PlayerGameLogic : MonoBehaviour
        
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-        if (_isHider || this.tag != "seeker")
-        {
-            if (collision.gameObject.tag == "seeker")
-            {
-                GotCaught();
-            }
-        }
-
-    }
-
-    private void GotCaught()
+    public void GotCaught(GameObject go)
     {
         //Prebacit kameru u zrak i freezat joj poziciju, dopustit okretanje da se gleda mapa?
         //lokalno
-        _position.position = new Vector3(-14.9803352f, 16.507f, 9.3464632f);
-        _posCon.gameObject.SetActive(true);
-        gameLogic.PlayerCaught();
+        PhotonView _photonView =  go.GetComponent<PhotonView>();
         _photonView.RPC("RPC_Died", RpcTarget.Others);
+
+        go.transform.position = new Vector3(-14.9803352f, 16.507f, 9.3464632f);
+        go.GetComponent<PositionConstraint>().enabled = true;
+        go.SetActive(false);
+
+        gameLogic.PlayerCaught();
     }
 
 
     [PunRPC]
     void RPC_Died()
     {
+        if (!GetComponent<PhotonView>().IsMine) { return; }
+
+        _canvas.gameObject.SetActive(true);
         //prebacit kameru svim ostalima
-        _position.position = new Vector3(-14.9803352f, 16.507f, 9.3464632f);
-        _posCon.gameObject.SetActive(true);
+        transform.position = new Vector3(-14.9803352f, 16.507f, 9.3464632f);
+        GetComponent<PositionConstraint>().enabled = true;
+        gameObject.SetActive(false);
         gameLogic.PlayerCaught();
     }
 
