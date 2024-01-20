@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Photon.Pun;
 
 public class CloneAbility : Ability
 {
@@ -27,7 +28,7 @@ public class CloneAbility : Ability
     {
         PhotonView _photonView = caller.GetComponent<PhotonView>();
         GameObject.Instantiate(Clone, caller.transform.position, caller.transform.rotation);
-        _photonView.RPC("RPC_Clone", RpcTarget.Others, Clone, caller.transform.position, caller.transform.rotation)
+        _photonView.RPC("RPC_Clone", RpcTarget.Others, Clone, caller.transform.position, caller.transform.rotation);
     }
 
     [PunRPC]
