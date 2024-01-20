@@ -26,7 +26,7 @@ public class TeleportationAbility : Ability
 
     public override float Cooldown
     {
-        get { return 30f; }
+        get { return 5f; }
         set { }
     }
 
@@ -39,6 +39,8 @@ public class TeleportationAbility : Ability
     {
         XRRayInteractor leftRay = leftHandRig.GetComponentInChildren<XRRayInteractor>();
         leftRay.enabled = true;
+
+        Debug.Log(leftRay);
 
         XRRayInteractor rightRay = rightHandRig.GetComponentInChildren<XRRayInteractor>() ;
         rightRay.enabled = true;

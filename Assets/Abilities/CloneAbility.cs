@@ -27,18 +27,16 @@ public class CloneAbility : Ability
     public override void Use(GameObject caller)
     {
         PhotonView _photonView = caller.GetComponent<PhotonView>();
-        GameObject.Instantiate(Clone, caller.transform.position, caller.transform.rotation);
+        //GameObject.Instantiate(Clone, caller.transform.position, caller.transform.rotation);
 
-        PhotonNetwork.Instantiate("Clone", caller.transform.position, caller.transform.rotation);
-
-        //_photonView.RPC("RPC_Clone", RpcTarget.All, Clone, caller.transform.position, caller.transform.rotation);
+        _photonView.RPC("RPC_Clone", RpcTarget.All, caller.transform.position, caller.transform.rotation);
     }
 
-    //[PunRPC]
-    //public void RPC_Clone(GameObject clone, Vector3 position, Quaternion rotation)
-    //{
-    //    GameObject.Instantiate(clone, position, rotation);
-    //}
+    [PunRPC]
+    public void RPC_Clone(Vector3 position, Quaternion rotation)
+    {
+        PhotonNetwork.Instantiate(Clone.name, position, rotation);
+    }
 
     public override Ability Get()
     {
