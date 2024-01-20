@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -10,6 +11,7 @@ public class PlayerGameLogic : MonoBehaviour
     [SerializeField] GameLogic gameLogic;
     [SerializeField] Transform _position;
     [SerializeField] PositionConstraint _posCon;
+    [SerializeField] Canvas _canvas;
     void Start() { 
     
         gameLogic = GameObject.Find("GameLogicObject").GetComponent<GameLogic>();
@@ -25,13 +27,14 @@ public class PlayerGameLogic : MonoBehaviour
     {
         //Prebacit kameru u zrak i freezat joj poziciju, dopustit okretanje da se gleda mapa?
         //lokalno
+        PhotonView _photonView =  go.GetComponent<PhotonView>();
+        _photonView.RPC("RPC_Died", RpcTarget.Others);
+
         go.transform.position = new Vector3(-14.9803352f, 16.507f, 9.3464632f);
         go.GetComponent<PositionConstraint>().enabled = true;
         go.SetActive(false);
 
         gameLogic.PlayerCaught();
-        PhotonView _photonView =  go.GetComponent<PhotonView>();
-        _photonView.RPC("RPC_Died", RpcTarget.Others);
     }
 
 
@@ -40,6 +43,7 @@ public class PlayerGameLogic : MonoBehaviour
     {
         if (!GetComponent<PhotonView>().IsMine) { return; }
 
+        _canvas.gameObject.SetActive(true);
         //prebacit kameru svim ostalima
         transform.position = new Vector3(-14.9803352f, 16.507f, 9.3464632f);
         GetComponent<PositionConstraint>().enabled = true;
