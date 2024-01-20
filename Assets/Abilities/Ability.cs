@@ -9,6 +9,5 @@ public abstract class Ability : MonoBehaviour
     public abstract void Use(GameObject caller);
 
     public abstract Ability Get();
-    public abstract void Set(Ability ability);
 
 }

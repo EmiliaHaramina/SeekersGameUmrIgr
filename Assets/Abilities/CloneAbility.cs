@@ -43,9 +43,4 @@ public class CloneAbility : Ability
     {
         return this;
     }
-
-    public override void Set(Ability ability)
-    {
-        throw new System.NotImplementedException();
-    }
 }

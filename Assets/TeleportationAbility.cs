@@ -25,11 +25,6 @@ public class TeleportationAbility : Ability
         return this;
     }
 
-    public override void Set(Ability ability)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void Use(GameObject caller)
     {
         foreach (XRRayInteractor interactor in _teleportInteractors)

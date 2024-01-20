@@ -27,8 +27,8 @@ public class InvisibilityAbility : Ability
         PhotonView _photonView = caller.GetComponent<PhotonView>();
         _photonView.RPC("RPC_TurnInvisible", RpcTarget.Others);
 
-        caller.transform.Find("Mesh").gameObject.SetActive(false);
-        caller.transform.Find("Armors").gameObject.SetActive(false);
+        caller.transform.Find("PlayerTest").gameObject.SetActive(false);
+        //caller.transform.Find("Armors").gameObject.SetActive(false);
         Invoke("TurnVisible", _invisibilityDuration);
     }
 
@@ -36,8 +36,8 @@ public class InvisibilityAbility : Ability
     public void RPC_TurnInvisible() {
         if (!GetComponent<PhotonView>().IsMine) { return; }
 
-        transform.Find("Mesh").gameObject.SetActive(false);
-        transform.Find("Armors").gameObject.SetActive(false);
+        transform.Find("PlayerTest").gameObject.SetActive(false);
+        //transform.Find("Armors").gameObject.SetActive(false);
     }
 
     public void TurnVisible()
@@ -45,8 +45,8 @@ public class InvisibilityAbility : Ability
         PhotonView _photonView = _caller.GetComponent<PhotonView>();
         _photonView.RPC("RPC_TurnVisible", RpcTarget.Others);
 
-        _caller.transform.Find("Mesh").gameObject.SetActive(true);
-        _caller.transform.Find("Armors").gameObject.SetActive(true);
+        _caller.transform.Find("PlayerTest").gameObject.SetActive(true);
+        //_caller.transform.Find("Armors").gameObject.SetActive(true);
 
     }
 
@@ -55,17 +55,12 @@ public class InvisibilityAbility : Ability
     {
         if (!GetComponent<PhotonView>().IsMine) { return; }
 
-        transform.Find("Mesh").gameObject.SetActive(true);
-        transform.Find("Armors").gameObject.SetActive(true);
+        transform.Find("PlayerTest").gameObject.SetActive(true);
+        //transform.Find("Armors").gameObject.SetActive(true);
     }
 
     public override Ability Get()
     {
         return this;
-    }
-
-    public override void Set(Ability ability)
-    {
-        throw new System.NotImplementedException();
     }
 }

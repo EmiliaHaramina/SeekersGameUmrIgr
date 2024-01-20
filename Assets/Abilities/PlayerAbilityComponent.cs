@@ -46,15 +46,6 @@ public class PlayerAbilityComponent : MonoBehaviour
         _abilityButtons[1] = new AbilityButton(invisAbility, buttons[1].GetComponent<Button>());
         _abilityButtons[2] = new AbilityButton(tpAbility, buttons[0].GetComponent<Button>());
 
-        //_abilityButtons[0].Ability = cloneAbility;
-        //_abilityButtons[0].Button = buttons[2].GetComponent<Button>();
-
-        //_abilityButtons[1].Ability = invisAbility;
-        //_abilityButtons[1].Button = buttons[1].GetComponent<Button>();
-
-        //_abilityButtons[2].Ability = tpAbility;
-        //_abilityButtons[2].Button = buttons[0].GetComponent<Button>();
-
         foreach (AbilityButton abilityButton in _abilityButtons)
         {
             abilityButton.Button.onClick.AddListener(() => UseAbility(abilityButton));
