@@ -52,12 +52,16 @@ public class CollisionDetector : MonoBehaviour
             if (col.transform.parent.tag == "hider" || col.transform.parent.tag == "Player")
             {
                 _pGL.GotCaught(col.transform.parent.gameObject);
+                _startGame = false;
+                timer = 10;
             }
             if (col.transform.parent.tag == "head")
             {
                 if (col.transform.parent.transform.parent.tag == "hider" || col.transform.parent.transform.parent.tag == "Player")
                 {
                     _pGL.GotCaught(col.transform.parent.transform.parent.gameObject);
+                    _startGame = false;
+                    timer = 10;
                 }
             }
         }
