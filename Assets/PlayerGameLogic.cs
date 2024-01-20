@@ -8,7 +8,6 @@ public class PlayerGameLogic : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameLogic gameLogic;
-    [SerializeField] PhotonView _photonView;
     [SerializeField] Transform _position;
     [SerializeField] PositionConstraint _posCon;
     void Start() { 
@@ -22,26 +21,15 @@ public class PlayerGameLogic : MonoBehaviour
        
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("JA ISTO RADIM SAD" + other.transform.name);
-        if (this.tag != "seeker")
-        {
-            if (other.gameObject.tag == "seeker" || other.transform.parent.gameObject.tag == "seeker")
-            {
-                GotCaught();
-            }
-        }
-
-    }
-
-    private void GotCaught()
+    public void GotCaught(GameObject go)
     {
         //Prebacit kameru u zrak i freezat joj poziciju, dopustit okretanje da se gleda mapa?
         //lokalno
-        _position.position = new Vector3(-14.9803352f, 16.507f, 9.3464632f);
-        _posCon.gameObject.SetActive(true);
+        go.transform.position = new Vector3(-14.9803352f, 16.507f, 9.3464632f);
+        go.GetComponent<PositionConstraint>().enabled = true;
+
         gameLogic.PlayerCaught();
+        PhotonView _photonView =  go.GetComponent<PhotonView>();
         _photonView.RPC("RPC_Died", RpcTarget.Others);
     }
 
@@ -49,9 +37,11 @@ public class PlayerGameLogic : MonoBehaviour
     [PunRPC]
     void RPC_Died()
     {
+        if (!GetComponent<PhotonView>().IsMine) { return; }
+
         //prebacit kameru svim ostalima
-        _position.position = new Vector3(-14.9803352f, 16.507f, 9.3464632f);
-        _posCon.gameObject.SetActive(true);
+        transform.position = new Vector3(-14.9803352f, 16.507f, 9.3464632f);
+        GetComponent<PositionConstraint>().enabled = true;
         gameLogic.PlayerCaught();
     }
 

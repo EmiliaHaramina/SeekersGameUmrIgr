@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollisionDetector : MonoBehaviour
 {
+    [SerializeField] PlayerGameLogic _pGL;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +19,35 @@ public class CollisionDetector : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        Debug.Log("Entered Collison with: " + col.transform.name + " --- This Parent name:" + this.transform.parent.gameObject.tag);
+       if (this.transform.parent.tag == "seeker")
+            { 
+            if(col.transform.parent.tag == "hider" || col.transform.parent.tag == "Player"){
+                _pGL.GotCaught(col.gameObject);
+            }
+            if (col.transform.parent.tag == "head") {
+                if (col.transform.parent.transform.parent.tag == "hider" || col.transform.parent.transform.parent.tag == "Player") {
+                    _pGL.GotCaught(col.gameObject);
+                }
+            }
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider col)
     {
-        Debug.Log("Entered Trigger with: " + other.name + " --- This Parent name:" + this.transform.parent.gameObject.tag);
+        if (this.transform.parent.tag == "seeker")
+        {
+            if (col.transform.parent.tag == "hider" || col.transform.parent.tag == "Player")
+            {
+                _pGL.GotCaught(col.gameObject);
+            }
+            if (col.transform.parent.tag == "head")
+            {
+                if (col.transform.parent.transform.parent.tag == "hider" || col.transform.parent.transform.parent.tag == "Player")
+                {
+                    _pGL.GotCaught(col.gameObject);
+                }
+            }
+        }
     }
 
 
