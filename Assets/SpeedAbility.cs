@@ -4,7 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class SpeedAbility : Ability
 {
-    [SerializeField] private float _boostSpeed = 2.4f;
+    [SerializeField] private float _boostSpeed = 3f;
 
     private Transform _moveObjectTransform;
     private float _speedDuration = 2f;
