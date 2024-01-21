@@ -20,8 +20,7 @@ public class PlayerGameLogic : MonoBehaviour
         gameLogic = GameObject.Find("GameLogicObject").GetComponent<GameLogic>();
         _moveSpeed = GameObject.FindGameObjectWithTag("MoveSpeed");
         _mineXRRig = GameObject.FindGameObjectWithTag("XRRig");
-        UpdateSpawnPosition();
-        Invoke("UpdateSpawnPosition", 5);
+        Invoke("UpdateSpawnPosition", 12);
     }
 
     // Update is called once per frame
@@ -66,9 +65,9 @@ public class PlayerGameLogic : MonoBehaviour
 
     public void UpdateSpawnPosition() {
         if (this.gameObject.tag == "seeker") { 
-        _mineXRRig.transform.position = new Vector3(-23.2900009f, 0, -15.3800001f); }
+        _mineXRRig.transform.position = new Vector3(-23.2900009f, 0.4f, -15.3800001f); }
         else{
-            _mineXRRig.transform.position = new Vector3(-14.8100004f, 0.2f, 9.40999985f);
+            _mineXRRig.transform.position = new Vector3(-14.8100004f, 0.4f, 9.40999985f);
         }
     }
 
