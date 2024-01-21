@@ -40,8 +40,6 @@ public class TeleportationAbility : Ability
         XRRayInteractor leftRay = leftHandRig.GetComponentInChildren<XRRayInteractor>();
         leftRay.enabled = true;
 
-        Debug.Log(leftRay);
-
         XRRayInteractor rightRay = rightHandRig.GetComponentInChildren<XRRayInteractor>() ;
         rightRay.enabled = true;
 

@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 using UnityEngine;
@@ -62,7 +63,11 @@ public class PlayerAbilityComponent : MonoBehaviour
         SetButton(abilityButton);
         lastUsedAbility = abilityButton;
 
-        abilityButton.Ability.Use(this.gameObject);
+        PhotonView photonView = gameObject.GetComponent<PhotonView>();
+        if (photonView.IsMine)
+        {
+            abilityButton.Ability.Use(photonView.gameObject);
+        }
 
         Invoke("RefreshCooldown", abilityButton.Ability.Cooldown);
     }
