@@ -30,7 +30,9 @@ public class InvisibilityAbility : Ability
 
     [PunRPC]
     public void RPC_TurnInvisible(GameObject caller) {
-        transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+        this.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+        Debug.Log(this.name + "---------------------------------------------------------------");
+        Debug.Log(this.transform.GetChild(0).GetChild(1).name+ "------------------------------");
         //transform.Find("Armors").gameObject.SetActive(false);
     }
 
