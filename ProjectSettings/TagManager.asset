@@ -12,6 +12,7 @@ TagManager:
   - head
   - ButtonTag
   - MoveSpeed
+  - XRRig
   layers:
   - Default
   - TransparentFX

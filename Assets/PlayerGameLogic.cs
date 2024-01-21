@@ -14,16 +14,18 @@ public class PlayerGameLogic : MonoBehaviour
     [SerializeField] PositionConstraint _posCon;
     [SerializeField] Canvas _canvas;
     [SerializeField] GameObject _moveSpeed;
+    private GameObject _mineXRRig;
     void Start() { 
     
         gameLogic = GameObject.Find("GameLogicObject").GetComponent<GameLogic>();
         _moveSpeed = GameObject.FindGameObjectWithTag("MoveSpeed");
+        _mineXRRig = GameObject.FindGameObjectWithTag("XRRig");
+        UpdateSpawnPosition();
     }
 
     // Update is called once per frame
     void Update()
     {
-       
     }
 
     public void SetMoveSpeed(float speed)
@@ -60,6 +62,12 @@ public class PlayerGameLogic : MonoBehaviour
         gameObject.SetActive(false);
         gameLogic.PlayerCaught();
     }
+
+    public void UpdateSpawnPosition() {
+        _mineXRRig.transform.position = new Vector3(-23.2900009f, 0, -15.3800001f);
+    }
+
+
 
 
 }
