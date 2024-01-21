@@ -31,25 +31,23 @@ public class InvisibilityAbility : Ability
     [PunRPC]
     public void RPC_TurnInvisible() {
         this.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
-        Debug.Log(this.name + "---------------------------------------------------------------");
-        Debug.Log(this.transform.GetChild(0).GetChild(1).name+ "------------------------------");
+        this.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
         //transform.Find("Armors").gameObject.SetActive(false);
     }
 
     public void TurnVisible()
     {
         PhotonView _photonView = _caller.GetComponent<PhotonView>();
-        _photonView.RPC("RPC_TurnVisible", RpcTarget.All, _caller);
-
-        _caller.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        _photonView.RPC("RPC_TurnVisible", RpcTarget.All);
         //_caller.transform.Find("Armors").gameObject.SetActive(true);
 
     }
 
     [PunRPC]
-    public void RPC_TurnVisible(GameObject caller)
+    public void RPC_TurnVisible()
     {
-        _caller.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        this.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        this.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
         //transform.Find("Armors").gameObject.SetActive(true);
     }
 
