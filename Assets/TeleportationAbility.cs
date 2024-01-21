@@ -37,14 +37,19 @@ public class TeleportationAbility : Ability
 
     public override void Use(GameObject caller)
     {
-        Debug.Log(leftHandRig);
+        Transform leftTeleportInteractor = leftHandRig.Find("Teleport Interactor");
+        leftTeleportInteractor.gameObject.GetComponent<XRRayInteractor>().enabled = true;
+        //XRRayInteractor leftRay = leftHandRig.GetComponentInChildren<XRRayInteractor>();
+        //Debug.Log(leftRay);
+        //leftRay.enabled = true;
 
-        XRRayInteractor leftRay = leftHandRig.GetComponentInChildren<XRRayInteractor>();
-        Debug.Log(leftRay);
-        leftRay.enabled = true;
+        //XRRayInteractor rightRay = rightHandRig.GetComponentInChildren<XRRayInteractor>() ;
+        //rightRay.enabled = true;
+        Transform rightTeleportInteractor = rightHandRig.Find("Teleport Interactor");
 
-        XRRayInteractor rightRay = rightHandRig.GetComponentInChildren<XRRayInteractor>() ;
-        rightRay.enabled = true;
+        Debug.Log(rightTeleportInteractor);
+
+        rightTeleportInteractor.gameObject.GetComponent<XRRayInteractor>().enabled = true;
 
         Invoke("DisableTeleportation", _teleportationDuration);
     }
