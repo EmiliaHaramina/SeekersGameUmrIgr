@@ -25,8 +25,7 @@ public class GameLogic : MonoBehaviour
         _hidersCaught = 0;
         _hidersWon = false;
 
-        Invoke("GetPlayerCountStart", 5f);
-        Invoke("MoveSeeker", 3f);
+        Invoke("GetPlayerCountStart", 15f);
 
 
     }
@@ -41,9 +40,6 @@ public class GameLogic : MonoBehaviour
         return _hidersNum - _hidersCaught;
     }
 
-    public void MoveSeeker() {
-        GameObject.FindGameObjectWithTag("seeker").transform.position = GameObject.FindGameObjectWithTag("SeekerSpawnPoint").transform.position;
-    }
 
     public void PlayerCaught() {
         _hidersCaught++;
