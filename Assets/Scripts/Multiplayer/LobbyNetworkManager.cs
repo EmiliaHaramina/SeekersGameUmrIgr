@@ -249,11 +249,11 @@ public class LobbyNetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
     }
 
-    public void OnBackToMainMenuPressed()
-    {
-        PhotonNetwork.Disconnect();
-        SceneManager.LoadScene("MainMenuScene");
-    }
+    //public void OnBackToLobbyPressed()
+    //{
+    //    PhotonNetwork.Disconnect();
+    //    SceneManager.LoadScene("LobbyScene");
+    //}
 
     public void OnStartGamePressed()
     {
