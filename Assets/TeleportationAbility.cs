@@ -37,29 +37,22 @@ public class TeleportationAbility : Ability
 
     public override void Use(GameObject caller)
     {
-        Transform leftTeleportInteractor = leftHandRig.Find("Teleport Interactor");
-        leftTeleportInteractor.gameObject.GetComponent<XRRayInteractor>().enabled = true;
-        //XRRayInteractor leftRay = leftHandRig.GetComponentInChildren<XRRayInteractor>();
-        //Debug.Log(leftRay);
-        //leftRay.enabled = true;
-
-        //XRRayInteractor rightRay = rightHandRig.GetComponentInChildren<XRRayInteractor>() ;
-        //rightRay.enabled = true;
-        Transform rightTeleportInteractor = rightHandRig.Find("Teleport Interactor");
-
-        Debug.Log(rightTeleportInteractor);
-
-        rightTeleportInteractor.gameObject.GetComponent<XRRayInteractor>().enabled = true;
+        ToggleTeleportation(true);
 
         Invoke("DisableTeleportation", _teleportationDuration);
     }
 
+    private void ToggleTeleportation(bool value)
+    {
+        Transform leftTeleportInteractor = leftHandRig.Find("Teleport Interactor");
+        leftTeleportInteractor.gameObject.GetComponent<XRRayInteractor>().enabled = value;
+
+        Transform rightTeleportInteractor = rightHandRig.Find("Teleport Interactor");
+        rightTeleportInteractor.gameObject.GetComponent<XRRayInteractor>().enabled = value;
+    }
+
     private void DisableTeleportation()
     {
-        XRRayInteractor leftRay = leftHandRig.GetComponentInChildren<XRRayInteractor>();
-        leftRay.enabled = false;
-
-        XRRayInteractor rightRay = rightHandRig.GetComponentInChildren<XRRayInteractor>();
-        rightRay.enabled = false;
+        ToggleTeleportation(false);
     }
 }
