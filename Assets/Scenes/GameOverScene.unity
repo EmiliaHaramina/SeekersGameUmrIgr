@@ -1376,7 +1376,14 @@ PrefabInstance:
       value: XR Interaction Setup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6694496370488184912, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+    - {fileID: 6733349667411237925, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+    - {fileID: 8677371567480465662, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+    - {fileID: 9014170784424948809, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+    - {fileID: 3412649390972202448, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+    - {fileID: 6454594071094758631, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+    - {fileID: 4224636915255053766, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
