@@ -7,7 +7,7 @@ public class SpeedAbility : Ability
     [SerializeField] private float _boostSpeed = 3f;
 
     private Transform _moveObjectTransform;
-    private float _speedDuration = 2f;
+    private float _speedDuration = 5f;
     private readonly float hiderSpeed = 2f;
 
     public override string Name
@@ -16,7 +16,7 @@ public class SpeedAbility : Ability
     }
 
     public override float Cooldown {
-        get { return 5f; }
+        get { return 15f; }
         set { }
     }
 

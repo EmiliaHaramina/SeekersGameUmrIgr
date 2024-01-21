@@ -10,7 +10,7 @@ public class TeleportationAbility : Ability
 
     private Transform leftHandRig;
     private Transform rightHandRig;
-    private float _teleportationDuration = 2f;
+    private float _teleportationDuration = 5f;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class TeleportationAbility : Ability
 
     public override float Cooldown
     {
-        get { return 5f; }
+        get { return 15f; }
         set { }
     }
 

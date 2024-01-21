@@ -4,7 +4,7 @@ using Photon.Pun;
 public class InvisibilityAbility : Ability
 {
     private GameObject _caller;
-    private float _invisibilityDuration = 3f;
+    private float _invisibilityDuration = 5f;
 
     public override string Name
     {
@@ -13,7 +13,7 @@ public class InvisibilityAbility : Ability
 
     public override float Cooldown
     {
-        get { return 5f; }
+        get { return 15f; }
         set { }
     }
 
