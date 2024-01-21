@@ -29,7 +29,7 @@ public class CloneAbility : Ability
         //GameObject.Instantiate(Clone, caller.transform.position, caller.transform.rotation);
         Debug.Log(caller.name + "---------------------------------------------------------------CLONE");
         Debug.Log(caller.transform.GetChild(0).GetChild(1).name + "------------------------------CLONE");
-        PhotonNetwork.Instantiate(Clone.name, caller.transform.position, caller.transform.rotation);
+        PhotonNetwork.Instantiate(Clone.name, gameObject.transform.position, gameObject.transform.rotation);
 
         //_photonView.RPC("RPC_Clone", RpcTarget.All, caller.transform.position, caller.transform.rotation);
     }

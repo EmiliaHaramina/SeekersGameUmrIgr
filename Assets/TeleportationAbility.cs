@@ -37,7 +37,10 @@ public class TeleportationAbility : Ability
 
     public override void Use(GameObject caller)
     {
+        Debug.Log(leftHandRig);
+
         XRRayInteractor leftRay = leftHandRig.GetComponentInChildren<XRRayInteractor>();
+        Debug.Log(leftRay);
         leftRay.enabled = true;
 
         XRRayInteractor rightRay = rightHandRig.GetComponentInChildren<XRRayInteractor>() ;
