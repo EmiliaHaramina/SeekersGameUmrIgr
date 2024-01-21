@@ -64,7 +64,11 @@ public class PlayerGameLogic : MonoBehaviour
     }
 
     public void UpdateSpawnPosition() {
-        _mineXRRig.transform.position = new Vector3(-23.2900009f, 0, -15.3800001f);
+        if (this.gameObject.tag == "seeker") { 
+        _mineXRRig.transform.position = new Vector3(-23.2900009f, 0, -15.3800001f); }
+        else{
+            _mineXRRig.transform.position = new Vector3(-14.8100004f, 1.00999999f, 9.40999985f);
+        }
     }
 
 
