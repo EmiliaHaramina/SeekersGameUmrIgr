@@ -39,11 +39,11 @@ public class PlayerAbilityComponent : MonoBehaviour
 
         GameObject abilities = GameObject.Find("Abilities");
 
-        CloneAbility cloneAbility = abilities.GetComponentInChildren<CloneAbility>();
+        SpeedAbility speedAbility = abilities.GetComponentInChildren<SpeedAbility>();
         TeleportationAbility tpAbility = abilities.GetComponentInChildren<TeleportationAbility>();
         InvisibilityAbility invisAbility = abilities.GetComponentInChildren<InvisibilityAbility>();
 
-        _abilityButtons[0] = new AbilityButton(cloneAbility, buttons[2].GetComponent<Button>());
+        _abilityButtons[0] = new AbilityButton(speedAbility, buttons[2].GetComponent<Button>());
         _abilityButtons[1] = new AbilityButton(invisAbility, buttons[1].GetComponent<Button>());
         _abilityButtons[2] = new AbilityButton(tpAbility, buttons[0].GetComponent<Button>());
 
