@@ -21,7 +21,7 @@ public class MasterClient : MonoBehaviour
             players = GameObject.FindGameObjectsWithTag("Player");
             tries++;
             yield return new WaitForSeconds(0.25f);
-        } while ((players.Length < PhotonNetwork.CurrentRoom.PlayerCount) && (tries < 5));
+        } while ((players.Length < PhotonNetwork.CurrentRoom.PlayerCount) && (tries < 50));
 
         // Assign the seeker
         GameObject pickedSeeker = players[Random.Range(0, players.Length)];
