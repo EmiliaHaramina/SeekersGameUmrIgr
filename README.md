@@ -1,6 +1,6 @@
 # VRPCeek
  
-## Descritpion:
+## Description:
 VR multiplayer game of hide & seek.
 Made for the Networked Games course at the Faculty of Electrical Engineering and Computing, University of Zagreb.
 
